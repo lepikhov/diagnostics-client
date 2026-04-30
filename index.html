@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MALS Diagnostics | Мониторинг данных</title>
+    <!-- Шрифт Roboto (Material Design) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Иконки Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app-bar">
+    <div class="status-section">
+        <div class="status-indicator">
+            <span class="status-led" id="statusLed"></span>
+            <span class="status-text" id="statusText">Подключение...</span>
+        </div>
+        <button class="retry-btn" id="retryConnectionBtn">
+            <span class="material-icons icon-small">refresh</span> Обновить
+        </button>
+    </div>
+    <div class="datetime-section">
+        <span class="material-icons icon-small">schedule</span>
+        <span id="currentDateTime">--.--.---- --:--:--</span>
+    </div>
+</div>
+
+<div class="dashboard-grid" id="metricsGrid">
+    <!-- карточки будут динамически заполняться, структура создаётся в JS -->
+</div>
+<footer>MALS Diagnostics · Обновление каждые 500 мс</footer>
+
+<script type="text/javascript" src="js/settings.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script defer type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

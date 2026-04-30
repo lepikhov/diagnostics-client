@@ -1,0 +1,282 @@
+/* ----- ПЕРЕМЕННЫЕ КОРИЧНЕВОЙ ПАЛИТРЫ (Material Brown) ----- */
+:root {
+    --brown-50: #EFEBE9;
+    --brown-100: #D7CCC8;
+    --brown-200: #BCAAA4;
+    --brown-300: #A1887F;
+    --brown-400: #8D6E63;
+    --brown-500: #795548;
+    /* primary */
+    --brown-600: #6D4C41;
+    --brown-700: #5D4037;
+    --brown-800: #4E342E;
+    --brown-900: #3E2723;
+
+    --gray-light: #F5F5F5;
+    --white: #FFFFFF;
+    --shadow-sm: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+    --border-radius: 12px;
+    --status-online: #4CAF50;  
+    --status-offline: #F44336;
+    --status-alarm: #FA8072;    
+    --status-warning: #FFD700;
+    --status-ok: #9ACD32;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(145deg, var(--brown-50) 0%, #E0D5CF 100%);
+    min-height: 100vh;
+    padding: 24px 20px;
+    color: var(--brown-900);
+}
+
+/* ----- СТРОКА СОСТОЯНИЯ (Material App Bar) ----- */
+.app-bar {
+    background: var(--brown-500);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: 12px 24px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.app-bar:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.status-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 18px;
+    border-radius: 40px;
+    backdrop-filter: blur(2px);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.status-led {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--status-online);
+    box-shadow: 0 0 4px var(--status-online);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.status-led.offline {
+    background-color: var(--status-offline);
+    box-shadow: 0 0 4px var(--status-offline);
+}
+
+.status-led.warning {
+    background-color: var(--status-warning);
+    box-shadow: 0 0 4px var(--status-warning);
+}
+
+.status-text {
+    font-size: 0.95rem;
+}
+
+.datetime-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 6px 18px;
+    border-radius: 40px;
+    letter-spacing: 0.5px;
+}
+
+.material-icons.icon-small {
+    font-size: 20px;
+}
+
+/* ----- СЕТКА (Material Cards) ----- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    margin-top: 8px;
+}
+
+/* Карточка (Material Card) */
+.metric-card {
+    background: var(--white);
+    border-radius: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.2s ease;
+    overflow: hidden;
+    backdrop-filter: blur(0px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    background: var(--brown-100);
+    padding: 20px 20px 12px 20px;
+    border-bottom: 1px solid var(--brown-200);
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--brown-800);
+}
+
+.card-title .material-icons {
+    font-size: 28px;
+    color: var(--brown-700);
+}
+
+.card-content {
+    padding: 28px 20px 32px 20px;
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: var(--brown-800);
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--brown-700), var(--brown-900));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: var(--brown-800);
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+
+.metric-unit {
+    font-size: 1rem;
+    color: var(--brown-600);
+    font-weight: 400;
+    margin-left: 6px;
+}
+
+.last-update-badge {
+    margin-top: 14px;
+    font-size: 0.7rem;
+    color: var(--brown-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* анимация загрузки / скелетон */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton-text {
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 12px;
+    height: 52px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* адаптивность */
+@media (max-width: 760px) {
+    body {
+        padding: 16px 12px;
+    }
+
+    .app-bar {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .status-section,
+    .datetime-section {
+        justify-content: center;
+    }
+
+    .metric-value {
+        font-size: 2.4rem;
+    }
+}
+
+/* Адаптив: на узких экранах переходим на 2 или 1 колонку */
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* кнопка переподключения (Material ghost) */
+.retry-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 40px;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: 8px;
+}
+
+.retry-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.02);
+}
+
+footer {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 0.75rem;
+    color: var(--brown-600);
+    opacity: 0.7;
+}
