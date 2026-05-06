@@ -91,12 +91,15 @@ function checkMean(value, normal_level, warning_criterion, warning_threshold, al
 // Определение иконки по типу метрики
 function getIconFromType(type) {
     switch (type) {
-        case "voltage":
-        case "current":
+        case "voltage AC":
+        case "voltage DC":            
+        case "current AC":
+        case "current DC":            
             return "speed";
         case "door":
             return "key";
         case "automat":
+        case "power":            
             return "power";
         default:
             return "favorite";
