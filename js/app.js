@@ -18,6 +18,9 @@
     // Хранилище текущих значений
     let currentValues = {};
 
+    // Счетчик циклов запроса
+    let requestCounter = 0;
+
     // Ссылки на DOM-элементы карточек
     const cardElements = {};
 
@@ -138,9 +141,15 @@
     // Основная логика получения данных и обновления значений
     async function pollData() {
         if (!isPollingActive) return;
+            
 
         renderCards();
-        loadConfig();
+    
+        if (!(requestCounter%10)) {
+            loadConfig();
+        }
+        
+        ++requestCounter;
 
         try {
             // Показываем "connecting" при первом запросе

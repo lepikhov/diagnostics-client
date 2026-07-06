@@ -97,10 +97,13 @@ function getIconFromType(type) {
         case "current DC":            
             return "speed";
         case "door":
-            return "key";
+            return "vpn_key";
+            //return "sensor_door";
         case "automat":
         case "power":            
             return "power";
+        case "frequency":            
+            return "waves";            
         default:
             return "favorite";
     }
